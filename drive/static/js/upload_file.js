@@ -1,7 +1,6 @@
 $(function () {
     $(".js-upload-photos").click(function () {
         $("#exampleModal").modal('show');
-        // $("#id_file").click();
     });
 
     $("#fileupload").fileupload({
@@ -57,7 +56,5 @@ $(function () {
                 $("."+category).prepend(row);
             }
         }
-
     });
-
 });

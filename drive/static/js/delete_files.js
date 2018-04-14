@@ -1,5 +1,6 @@
 $(function () {
-    $("input:checkbox").change(function () {
+
+    $(document).on("change", "input:checkbox", function () {
         if ($("input:checkbox:checked").length) {
             $("#delete-files").prop("disabled", false);
         }
