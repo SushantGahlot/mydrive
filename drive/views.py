@@ -11,6 +11,7 @@ from django.template import Template, Context
 from django.template.loader import get_template
 import json
 
+
 # Create your views here.
 
 
@@ -21,8 +22,7 @@ class FileUploadView(View):
         return render(self.request, 'upload_file.html', {'file_list': file_list, 'form': form})
 
     def post(self, request):
-        time.sleep(
-            1)  # We don't need this line. This is just to delay the process to see the progress bar testing locally.
+        time.sleep(1)  # We don't need this line. This is just to delay the process to see the progress bar testing locally.
         form = FileForm(self.request.POST, self.request.FILES)
         if form.is_valid():
             file = form.save()
@@ -59,12 +59,11 @@ class DeleteFilesView(View):
         return HttpResponse(200)
 
 
-
 def search_files(request):
     if request.method == "GET":
         searched_term = request.GET.get('query')
         results = [{'value': k, 'data': v} for k, v in
-                 list(File.objects.filter(filename__icontains=searched_term).values_list('filename', 'id'))]
+                   list(File.objects.filter(filename__icontains=searched_term).values_list('filename', 'id'))]
         results = {"suggestions": results}
         return HttpResponse(json.dumps(results), content_type="application/json")
 
