@@ -1,4 +1,5 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -20,6 +21,7 @@
 </head>
 <body>
 {% include 'includes/header.html' %}
+{% include 'partials/upload_file_modals.html' %}
 <div>
     {% block content %}
 
@@ -30,6 +32,17 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.js"></script>
+<script src="{% static 'js/search_file.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.js"></script>
+<script src="{% static 'js/jquery-file-upload/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jquery-file-upload/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jquery-file-upload/jquery.fileupload.js' %}"></script>
+{# UPLOAD SCRIPTS #}
+<script src="{% static 'js/upload_file.js' %}"></script>
+<script src="{% static 'js/delete_files.js' %}"></script>
+<script src="{% static 'js/csrf_setup.js' %}"></script>
+<script src="{% static 'js/single_file.js' %}"></script>
 {% block javascript %}
 {% endblock %}
 </body>

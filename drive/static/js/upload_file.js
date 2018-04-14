@@ -48,11 +48,13 @@ $(function () {
         },
 
         done: function (e, data) {
-            if (data.result.is_valid) {
+            data = data.result;
+            if (data.status === "success") {
                 $('.form-check-input').prop('checked', false);
-                $("#gallery tbody").prepend(
-                    "<tr><td><a href='" + data.result.url + "'>" + data.result.name + "</a></td></tr>"
-                )
+                var category = data.category;
+                var row = data.row;
+                console.log(row);
+                $("."+category).prepend(row);
             }
         }
 

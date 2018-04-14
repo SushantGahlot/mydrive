@@ -1,10 +1,42 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
     <form class="form-inline">
-        <a class="navbar-brand">Navbar</a>
+        <a href="/home/" class="navbar-brand">My Drive</a>
     </form>
     <form class="form-inline">
         <a class="nav-item nav-link js-upload-photos" href="javascript:void(0)">Upload</a>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" id="autocomplete">
+        {#        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>#}
     </form>
 </nav>
+
+<style>
+    .autocomplete-suggestions {
+        border: 1px solid #999;
+        background: #FFF;
+        overflow: auto;
+    }
+
+    .autocomplete-suggestion {
+        padding: 2px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .autocomplete-selected {
+        background: #F0F0F0;
+    }
+
+    .autocomplete-suggestions strong {
+        font-weight: normal;
+        color: #3399FF;
+    }
+
+    .autocomplete-group {
+        padding: 2px 5px;
+    }
+
+    .autocomplete-group strong {
+        display: block;
+        border-bottom: 1px solid #000;
+    }
+</style>

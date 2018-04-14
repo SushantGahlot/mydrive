@@ -1,87 +1,107 @@
 <div class="col-sm-4">
-    <div class="card">
+    <div class="card files">
         <div class="card-header bg-secondary text-white">
             Financial Documents
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Select</th>
-                    <th scope="col">File</th>
-                    <th scope="col">Uploaded at</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for file in file_list %}
-                    {% if file.category == "Financial Document" %}
-                        <tr>
-                            <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
-                            <td><a href="{{ file.file.url }}">{{ file.file }}</a></td>
-                            <td>{{ file.uploaded_at }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Uploaded at</th>
+                        <th scope="col">Size</th>
+                    </tr>
+                    </thead>
+                    <tbody class="financial">
+                    {% for file in file_list %}
+                        {% if file.category == "Financial Document" %}
+                            <tr class="row-{{ file.id }}">
+                                <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
+                                <td><a href="{{ file.file.url }}">{{ file.filename|truncatechars:15 }}</a></td>
+                                <td>{{ file.uploaded_at }}</td>
+                                <td>{{ file.file.size|filesizeformat }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 <div class="col-sm-4">
-    <div class="card">
+    <div class="card files">
         <div class="card-header bg-secondary text-white">
             Marketing Documents
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Select</th>
-                    <th scope="col">File</th>
-                    <th scope="col">Uploaded at</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for file in file_list %}
-                    {% if file.category == "Marketing Document" %}
-                        <tr>
-                            <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
-                            <td><a href="{{ file.file.url }}">{{ file.file }}</a></td>
-                            <td>{{ file.uploaded_at }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Uploaded at</th>
+                        <th scope="col">Size</th>
+                    </tr>
+                    </thead>
+                    <tbody class="marketing">
+                    {% for file in file_list %}
+                        {% if file.category == "Marketing Document" %}
+                            <tr class="row-{{ file.id }}">
+                                <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
+                                <td><a href="{{ file.file.url }}">{{ file.filename|truncatechars:15 }}</a></td>
+                                <td>{{ file.uploaded_at }}</td>
+                                <td>{{ file.file.size|filesizeformat }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 <div class="col-sm-4">
-    <div class="card">
+    <div class="card files">
         <div class="card-header bg-secondary text-white">
             Technical Documents
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Select</th>
-                    <th scope="col">File</th>
-                    <th scope="col">Uploaded at</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for file in file_list %}
-                    {% if file.category == "Technical Document" %}
-                        <tr>
-                            <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
-                            <td><a href="{{ file.file.url }}">{{ file.file }}</a></td>
-                            <td>{{ file.uploaded_at }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Uploaded at</th>
+                        <th scope="col">Size</th>
+                    </tr>
+                    </thead>
+                    <tbody class="technical">
+                    {% for file in file_list %}
+                        {% if file.category == "Technical Document" %}
+                            <tr class="row-{{ file.id }}">
+                                <th scope="row"><input type="checkbox" value="{{ file.id }}"></th>
+                                <td><a href="{{ file.file.url }}">{{ file.filename|truncatechars:15 }}</a></td>
+                                <td>{{ file.uploaded_at }}</td>
+                                <td>{{ file.file.size|filesizeformat }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    .files{
+        max-height: 600px;
+        height: 600px;
+        overflow-y: auto;
+    }
+</style>

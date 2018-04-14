@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if request.get_full_path == "/home/" %}
+        <div class="card card-secondary" style="margin: 50px 20px 20px 20px">
+            <div class="card-header" style="text-align: center; font-size: x-large">Documents on drive</div>
+            <div class="card-body">
+                <div class="row" style="margin: 0">
+                    {% include 'partials/category_panels.html' with file_list=file_list %}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-outline-danger float-right" id="delete-files" disabled>Delete Selected</button>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
